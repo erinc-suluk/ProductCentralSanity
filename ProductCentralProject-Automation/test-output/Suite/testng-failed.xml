@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.pwc.productcentral.Listeners"/>
+  </listeners>
+  <test parallel="none" name="Test(failed)">
+    <classes>
+      <class name="com.pwc.productcentral.SanityTestCases">
+        <methods>
+          <include name="initTest"/>
+          <include name="setUp"/>
+          <include name="closingBrowser"/>
+          <include name="WEB_1"/>
+        </methods>
+      </class> <!-- com.pwc.productcentral.SanityTestCases -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

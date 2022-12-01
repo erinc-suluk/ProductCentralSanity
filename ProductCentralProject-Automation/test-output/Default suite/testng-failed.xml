@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Default suite]">
+  <test parallel="none" name="Default test(failed)">
+    <classes>
+      <class name="com.pwc.productcentral.SanityTestCases">
+        <methods>
+          <include name="initTest"/>
+          <include name="setUp"/>
+          <include name="closingBrowser"/>
+          <include name="WEB_5_2"/>
+        </methods>
+      </class> <!-- com.pwc.productcentral.SanityTestCases -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
