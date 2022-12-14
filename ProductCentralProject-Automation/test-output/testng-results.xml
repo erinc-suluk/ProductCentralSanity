@@ -1,81 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="8" passed="8" failed="0" skipped="0">
+<testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-11-18T16:01:28Z" name="Default suite" finished-at="2022-11-18T16:01:51Z" duration-ms="22770">
+  <suite started-at="2022-12-14T15:44:23Z" name="Default suite" finished-at="2022-12-14T15:44:28Z" duration-ms="4723">
     <groups>
     </groups>
-    <test started-at="2022-11-18T16:01:28Z" name="Default test" finished-at="2022-11-18T16:01:51Z" duration-ms="22770">
+    <test started-at="2022-12-14T15:44:23Z" name="Default test" finished-at="2022-12-14T15:44:28Z" duration-ms="4723">
       <class name="com.pwc.productcentral.SanityTestCases">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:28Z" name="setUp" finished-at="2022-11-18T11:01:28Z" duration-ms="127" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.pwc.productcentral.SanityTestCases@732bb66d]" started-at="2022-12-14T10:44:23Z" name="setUp" finished-at="2022-12-14T10:44:23Z" duration-ms="120" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:28Z" name="initTest" finished-at="2022-11-18T11:01:29Z" duration-ms="128" status="PASS">
+        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@732bb66d]" started-at="2022-12-14T10:44:23Z" name="initTest" finished-at="2022-12-14T10:44:24Z" duration-ms="132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initTest -->
-        <test-method signature="WEB_20()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:29Z" name="WEB_20" finished-at="2022-11-18T11:01:34Z" duration-ms="5127" status="PASS">
+        <test-method signature="WEB_47()[pri:0, instance:com.pwc.productcentral.SanityTestCases@732bb66d]" started-at="2022-12-14T10:44:24Z" name="WEB_47" finished-at="2022-12-14T10:44:28Z" duration-ms="4583" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- WEB_20 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:34Z" name="initTest" finished-at="2022-11-18T11:01:34Z" duration-ms="27" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_20_1()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:34Z" name="WEB_20_1" finished-at="2022-11-18T11:01:38Z" duration-ms="4218" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_20_1 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:38Z" name="initTest" finished-at="2022-11-18T11:01:38Z" duration-ms="25" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_20_2()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:38Z" name="WEB_20_2" finished-at="2022-11-18T11:01:43Z" duration-ms="5478" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_20_2 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:43Z" name="initTest" finished-at="2022-11-18T11:01:43Z" duration-ms="31" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_20_3()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:43Z" name="WEB_20_3" finished-at="2022-11-18T11:01:48Z" duration-ms="4179" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_20_3 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:48Z" name="initTest" finished-at="2022-11-18T11:01:48Z" duration-ms="36" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_21()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:48Z" name="WEB_21" finished-at="2022-11-18T11:01:48Z" duration-ms="812" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_21 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:48Z" name="initTest" finished-at="2022-11-18T11:01:48Z" duration-ms="27" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_21_1()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:48Z" name="WEB_21_1" finished-at="2022-11-18T11:01:49Z" duration-ms="783" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_21_1 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:49Z" name="initTest" finished-at="2022-11-18T11:01:49Z" duration-ms="38" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_21_2()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:49Z" name="WEB_21_2" finished-at="2022-11-18T11:01:50Z" duration-ms="691" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_21_2 -->
-        <test-method is-config="true" signature="initTest()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:50Z" name="initTest" finished-at="2022-11-18T11:01:50Z" duration-ms="51" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initTest -->
-        <test-method signature="WEB_21_3()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:50Z" name="WEB_21_3" finished-at="2022-11-18T11:01:51Z" duration-ms="1106" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- WEB_21_3 -->
-        <test-method is-config="true" signature="closingBrowser()[pri:0, instance:com.pwc.productcentral.SanityTestCases@69b2f8e5]" started-at="2022-11-18T11:01:51Z" name="closingBrowser" finished-at="2022-11-18T11:01:51Z" duration-ms="270" status="PASS">
+        </test-method> <!-- WEB_47 -->
+        <test-method is-config="true" signature="closingBrowser()[pri:0, instance:com.pwc.productcentral.SanityTestCases@732bb66d]" started-at="2022-12-14T10:44:28Z" name="closingBrowser" finished-at="2022-12-14T10:44:28Z" duration-ms="214" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closingBrowser -->

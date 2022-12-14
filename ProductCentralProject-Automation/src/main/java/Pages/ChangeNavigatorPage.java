@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.pwc.productcentral.Driver;
@@ -70,6 +71,9 @@ public class ChangeNavigatorPage extends HelperFunctions {
 	@FindBy(xpath="//div[@class='cmp-text']")
 	private WebElement actualNavigatorDescription;
 	
+	@FindBy(xpath="(//coral-columnview-column[@data-foundation-layout-columnview-columnid='/content/pc/us/en'])//coral-columnview-item")
+	private static List<WebElement> contentOptions;
+	
 	@FindBy(xpath="//div[@title='Automation']")
 	private WebElement automation;
 	@FindBy(xpath="//coral-columnview-item[@data-granite-collection-item-id='/content/pc/us/en/automation/my-products']")
@@ -91,6 +95,43 @@ public class ChangeNavigatorPage extends HelperFunctions {
 	
 	@FindBy(xpath="//button[@id='showLess']")
 	private WebElement viewLessButton;
+	
+	@FindBy(xpath="//button[@class='granite-collection-create foundation-toggleable-control coral3-Button coral3-Button--primary']")
+	private WebElement createButton;
+	
+	@FindBy(xpath="(//coral-list-item-content[.='Page'])[1]")
+	private WebElement pageButton;
+	
+	@FindBy(xpath="//img[@src='/conf/pc/settings/wcm/templates/product-listing-page-template-product-central/thumbnail.png']")
+	private WebElement productListingPageTemplate;
+	
+	@FindBy(xpath="//coral-button-label[.='Next']")
+	private WebElement nextButton;
+	
+	@FindBy(xpath="//coral-tab-label[.='Product Central']")
+	private WebElement productCentralTab;
+	
+	@FindBy(xpath="//select[@name='./documentCategory']")
+	private static List<WebElement> documentCategoryTag;
+	
+	@FindBy(xpath="//select[@name='./productFeatureTag']")
+	private static List<WebElement> productFeatureTags;
+	
+	@FindBy(xpath="//select[@name='./portfolioTag']")
+	private static List<WebElement> portfolioTags;
+	
+	@FindBy(xpath="//div[@title='Products']")
+	private WebElement products;
+	
+	
+	
+	@FindBy(xpath="((//div[@class='cmp-all-resources__cards-page ap-page-container'])//div//a)[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]")
+	private static List<WebElement> first5resources;
+	
+	
+
+	
+	
 	
 	String expectedNavigatorTitle="new title";
 	String expectedNavigatorDescription="New Description";
@@ -223,5 +264,106 @@ public class ChangeNavigatorPage extends HelperFunctions {
     public void setActualNavigatorDescription() {
 		Assert.assertEquals(actualNavigatorDescription.getText(),expectedNavigatorDescription,"Actual and expected Navigator description do not match");
 	}
+    public void setDocCategory() {
+    	sites.click();
+    	productcentral.click();
+    	us.click();
+    	en.click();
+    	createButton.click();
+    	pageButton.click();
+    	HelperFunctions.waitForPageToLoad(5);
+    	productListingPageTemplate.click();
+    	nextButton.click();
+    	HelperFunctions.waitForPageToLoad(5);
+    	productCentralTab.click();
+    	
+    	
+    	for(WebElement each: documentCategoryTag) {
+    		
+    		if(each.getText().contains("Hosted Software Terms") && each.getText().contains("Patent Marking")&& each.getText().contains("Tool License Terms")
+    				&& each.getText().contains("SMS Terms & Acceptable Use Policy")&& each.getText().contains("Terms of Use")&& each.getText().contains("Offering Overview")
+    				&& each.getText().contains("Maintenance & Support")&& each.getText().contains("Data Processing Addendum")
+    				&& each.getText().contains("Security")&& each.getText().contains("Compliance")&& each.getText().contains("Privacy")
+    				&& each.getText().contains("Accessibility")&& each.getText().contains("Terms & Conditions")
+    				&& each.getText().contains("Evaluation License")&& each.getText().contains("Documentation")) {
+    			System.out.println(each.getText());
+    			Assert.assertTrue(true);}else {Assert.assertTrue(false);}}
+for(WebElement eachtag: productFeatureTags) {
+	System.out.println(eachtag.getText());
+    		if(eachtag.getText().contains("Check-in") && eachtag.getText().contains("Change Navigator")&& eachtag.getText().contains("Costumer Link")
+    				&&eachtag.getText().contains("Digital on Demand")&& eachtag.getText().contains("Digital Operations Portal")&& eachtag.getText().contains("Disclosure Checklist")
+    				&& eachtag.getText().contains("Enterprise Control")&& eachtag.getText().contains("Financial Wellness")
+    				&& eachtag.getText().contains("Fluid Forecast")&& eachtag.getText().contains("Insights Platform")&& eachtag.getText().contains("Insights Officer")
+    				&& eachtag.getText().contains("Interactions Hub")&& eachtag.getText().contains("International Tax View")
+    				&& eachtag.getText().contains("LDTI E-Learns")&& eachtag.getText().contains("Listen Platform")
+    				&& eachtag.getText().contains("Master Data Management")&& eachtag.getText().contains("Media Intelligence")
+    				&& eachtag.getText().contains("Model Edge")&& eachtag.getText().contains("Origin Compliance")
+    				&& eachtag.getText().contains("Partner Hub")&& eachtag.getText().contains("Performance Analyzer")
+    				&& eachtag.getText().contains("ProEdge")&& eachtag.getText().contains("Ready Assess")
+    				&& eachtag.getText().contains("Risk Detect - ABAC")&& eachtag.getText().contains("Saratoga")
+    				&& eachtag.getText().contains("Third Party Tracker")&& eachtag.getText().contains("Transparency Hub")
+    				&& eachtag.getText().contains("Workforce Architect")&& eachtag.getText().contains("Workforce Orchestrator")) {
+    			
+    			Assert.assertTrue(true);}else {Assert.assertTrue(false);}}
+for(WebElement eachporttag: portfolioTags) {
+	System.out.println(eachporttag.getText());
+	
+	if(eachporttag.getText().contains("Customer engagement") && eachporttag.getText().contains("Operational improvement")&& eachporttag.getText().contains("Risk mitigation")
+			&& eachporttag.getText().contains("Strategic intelligence")&& eachporttag.getText().contains("Workforce experience")) {
+		
+		Assert.assertTrue(true);}else {Assert.assertTrue(false);}}
+    	
+    	
+    	
+    	
+    	
+    	
+    }
+    public void setDate() {
+    	sites.click();
+    	productcentral.click();
+    	us.click();
+    	en.click();
+    	HelperFunctions.staticWait(5);
+    	for(WebElement eachlink:contentOptions) {
+    		System.out.println(eachlink.getText());
+    	}
+    	
+    	
+    
+    
+    }
+    
+    
+    public void setCombination() {
+    	sites.click();
+    	productcentral.click();
+    	us.click();
+    	en.click();
+    	createButton.click();
+    	pageButton.click();
+    	HelperFunctions.waitForPageToLoad(5);
+    	productListingPageTemplate.click();
+    	nextButton.click();
+    	HelperFunctions.waitForPageToLoad(5);
+    	productCentralTab.click();
+    	
+    	for(WebElement each: documentCategoryTag) {
+    		if(each.getText().contains("Hosted Software Terms")) {
+    			each.click();
+    			break;
+    		}
+    	}
+    	
+    	
+    	
+    	
+    }
+    
+    
+    
+    
+    
+    
 
 }

@@ -106,13 +106,17 @@ public static void setFooterHome() {
 	
 	}
 public static void setLeftNavigationItems2() {
-	HelperFunctions.waitForPageToLoad(3);
+	HelperFunctions.waitForPageToLoad(5);
 	for(WebElement items:leftNavigationItems2) {
-		if(items.isDisplayed()) {
+		System.out.println(items.getText());
+		if (items.getText().contains("Home") && items.getText().contains("Legal")&& items.getText().contains("Products")
+				&& items.getText().contains("Security")&& items.getText().contains("Compliance")
+				&& items.getText().contains("Privacy")&& items.getText().contains("Accesiblility")) {
 			Assert.assertTrue(true);
 		}else {
-			logger.error("Missing left navigation items");
+			Assert.assertTrue(false);
 		}
+		
 }
 }
 public static void setCollapseButton() {

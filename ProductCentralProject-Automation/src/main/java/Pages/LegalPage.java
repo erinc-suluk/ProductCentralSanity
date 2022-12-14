@@ -21,11 +21,11 @@ public class LegalPage extends HelperFunctions {
 	@FindBy(xpath="//a[@href='/us/en/automation/legal/offering-overview.html']")
 	private WebElement offeringOverviewLink;
 	
-	@FindBy(xpath="//a[@href='/us/en/products/change-navigator/offering-overview.html']")
-	private WebElement changeNavigatorLink;
-	
 	@FindBy(xpath="/us/en/automation/legal/data-processing-addendum.html")
 	private WebElement dataProcessingLink;
+	
+	@FindBy(xpath="//a[@href='/us/en/products/change-navigator/offering-overview.html']")
+	private WebElement changeNavigatorLink;
 	
 	@FindBy(xpath="//a[@href='/us/en/products/customer-link/maintenance---support.html']")
 	private WebElement customerLink;
@@ -35,6 +35,12 @@ public class LegalPage extends HelperFunctions {
 	
 	@FindBy(xpath="//a[@href='https://productcentral-qa.products.pwc.com/us/en/automation/legal/maintenance---support.html']")
 	private WebElement maintenanceAndSupportBreadcrumb;
+	
+	@FindBy(xpath="//span[@class='cmp-pdf-highlights__title']")
+	private WebElement ContentTitle;
+	
+	@FindBy(xpath="//div[@class='cmp-legal-product-listing__tiles']")
+	private static List<WebElement> tilesComponents;
 	
 	@FindBy(xpath="//a[@href='/us/en/automation/legal.html']")
 	private WebElement backtoLegalBreadcrumb;
@@ -47,6 +53,9 @@ public class LegalPage extends HelperFunctions {
 	
 	@FindBy(xpath="//span[@class='cmp-breadcrumb__link-title']")
 	private WebElement offeringOverviewBreadcrumb;
+	
+	@FindBy(xpath="(//div[@class='cmp-document-tiles__entry-info-container'])//div[2]")
+	private static List<WebElement> descriptionOfTiles;
 	
 	
 	
@@ -81,16 +90,62 @@ public class LegalPage extends HelperFunctions {
 		offeringOverviewBreadcrumb.click();
 		HelperFunctions.waitForPageToLoad(3);
 		backtoLegalBreadcrumb.click();
-	
-		
-		
-		
-		
-		
-		
-		
+	}
+	public void setDescriptionOfTiles() {
+		HelperFunctions.waitForPageTitle("Legal");
+		for(WebElement eachDescription: descriptionOfTiles) {
+			System.out.println(eachDescription.getCssValue("-webkit-line-clamp"));
+			if(eachDescription.getCssValue("-webkit-line-clamp").equals("3")) {
+				Assert.assertTrue(true);
+			}else {
+				Assert.assertTrue(false);
+				
+			}
+		}
 	}
 	
+	public void setContentPageTags() {
+		HelperFunctions.waitForPageTitle("Legal");
+		maintenanceAndSupportLink.click();
+		HelperFunctions.waitForPageToLoad(3);
+		for(WebElement eachTiles: tilesComponents) {
+			System.out.println(eachTiles.getText());
+			if(eachTiles.getText().contains("Change Navigator") && eachTiles.getText().contains("Customer Link")
+					&& eachTiles.getText().contains("Financial Wellness")
+					&& eachTiles.getText().contains("21112Ínsights Platform")) {
+				Assert.assertTrue(true);
+				
+			}else {
+				Assert.assertTrue(false);
+			}
+		}
+		customerLink.click();
+		HelperFunctions.waitForPageToLoad(3);
+		String actualContentTitle=ContentTitle.getText();
+		String expectedContentTitle="Maintenance & Support";
+		Assert.assertEquals(actualContentTitle, expectedContentTitle,"Actual and expected content Titles do not match");
+		maintenanceAndSupportBreadcrumb.click();
+		HelperFunctions.waitForPageToLoad(3);
+		backtoLegalBreadcrumb.click();
+		HelperFunctions.waitForPageTitle("Legal");
+		offeringOverviewLink.click();
+		HelperFunctions.waitForPageToLoad(3);
+		for(WebElement eachTiles: tilesComponents) {
+			System.out.println(eachTiles.getText());
+			if(eachTiles.getText().contains("Change Navigator") && eachTiles.getText().contains("Customer Link")
+					&& eachTiles.getText().contains("Financial Wellness")
+					&& eachTiles.getText().contains("21112Ínsights Platform")) {
+				Assert.assertTrue(true);
+				
+			}else {
+				Assert.assertTrue(false);
+			}
+		}
+		changeNavigatorLink.click();
+		String actualContentTitle2=ContentTitle.getText();
+		String expectedContentTitle2="Offering Overview";
+		Assert.assertEquals(actualContentTitle2, expectedContentTitle2,"Actual and expected content Titles do not match");
+	}
 	
 	
 	

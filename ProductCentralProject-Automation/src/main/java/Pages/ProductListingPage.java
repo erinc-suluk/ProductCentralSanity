@@ -78,6 +78,27 @@ public class ProductListingPage extends HelperFunctions {
 	@FindBy(xpath="//h1[@class='cmp-product-list__search-bar-title']")
 	private WebElement productsTitle;
 	
+	@FindBy(xpath="//input[@aria-label='Search Product']")
+	private WebElement searchProduct;
+	
+	@FindBy(xpath="//div[@class='ap-option-item']")
+	private WebElement searchItem;
+	
+	@FindBy(xpath="//span[@class='cmp-product-list__card-title ']")
+	private WebElement products;
+	
+	@FindBy(xpath="//a[@data-product-name='Strategic']")
+	private WebElement strategicProduct;
+	
+	@FindBy(xpath="//a[@data-product-name='Cloud']")
+	private WebElement cloudProduct;
+	
+	@FindBy(xpath="//a[@data-product-name='Risk']")
+	private WebElement riskProduct;
+	
+	
+	
+	
 	
 	
 	
@@ -232,6 +253,82 @@ public class ProductListingPage extends HelperFunctions {
 		}else {
 			Assert.assertTrue(false);
 		}
+		
+	}
+	
+	public void setSearchBox() {
+		HelperFunctions.waitForPageToLoad(5);
+		searchProduct.click();
+		searchProduct.sendKeys("Cloud");
+		searchItem.click();
+		if(cloudProduct.isDisplayed()) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+		HelperFunctions.staticWait(3);
+		searchProduct.clear();
+		searchProduct.click();
+		searchProduct.sendKeys("Strategic");
+		searchItem.click();
+		HelperFunctions.staticWait(3);
+		if(strategicProduct.isDisplayed() ) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+		HelperFunctions.staticWait(3);
+		searchProduct.clear();
+		searchProduct.click();
+		searchProduct.sendKeys("Risk");
+		searchItem.click();
+		HelperFunctions.staticWait(3);
+		if(riskProduct.isDisplayed() ) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+			
+		
+		
+	}
+	
+	public void setSearchResult() {
+		HelperFunctions.waitForPageToLoad(5);
+		searchProduct.click();
+		searchProduct.sendKeys("Cl");
+		HelperFunctions.staticWait(3);
+		searchItem.click();
+		if(cloudProduct.isDisplayed()) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+		HelperFunctions.staticWait(3);
+		searchProduct.clear();
+		searchProduct.click();
+		searchProduct.sendKeys("St");
+		HelperFunctions.staticWait(3);
+		searchItem.click();
+		HelperFunctions.staticWait(3);
+		if(strategicProduct.isDisplayed() ) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+		HelperFunctions.staticWait(3);
+		searchProduct.clear();
+		searchProduct.click();
+		searchProduct.sendKeys("Ri");
+		HelperFunctions.staticWait(3);
+		searchItem.click();
+		HelperFunctions.staticWait(3);
+		if(riskProduct.isDisplayed() ) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+			
 		
 	}
 	  

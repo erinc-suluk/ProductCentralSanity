@@ -1,12 +1,18 @@
 package Pages;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.pwc.productcentral.Driver;
@@ -57,6 +63,67 @@ public class HomePage extends HelperFunctions {
 	
 	@FindBy(xpath="//div[@data-path='/content/pc/us/en/automation/homepage-demo/jcr:content/root/container/container/tiles/title']")
 	private WebElement titleforAuthor;
+	
+	@FindBy(xpath="//button[@id='searchButtonHeader']")
+	private WebElement searchButton;
+	
+	@FindBy(xpath="//input[@id='globalSearchInput']")
+	private WebElement searchInput;
+	
+	@FindBy(xpath="//div[@id='searchProductDropdown']")
+	private WebElement productDropdown;
+	
+	@FindBy(xpath="//div[@class='ap-dropdown-list show']")
+	private static List<WebElement> productDropdownList;
+	
+	@FindBy(xpath="//input[@id='change-navigator']")
+	private WebElement changeNavigatorCheckbox;
+	
+	@FindBy(xpath="//div[@id='docDropdown']")
+	private WebElement catDropdown;
+	
+	@FindBy(xpath="//div[@id='searchSortingDropdown']")
+	private WebElement sortingDropdown;
+	
+	@FindBy(xpath="//input[@id='data-processing-addendum']")
+	private WebElement dataAppCheckbox;
+	
+	@FindBy(xpath="//input[@id='documentation']")
+	private WebElement documentationCheckbox;
+	
+	@FindBy(xpath="(//div[@class='cmp-search-results__card-title'])[1]")
+	private WebElement dataAppTitle;
+	
+	@FindBy(xpath="(//div[@class='cmp-search-results__card-title'])[2]")
+	private WebElement documentationTitle;
+	
+	@FindBy(xpath="//span[@class='sdk-HeaderFileInfoView-fileBreadCrumb sdk-HeaderFileInfoView-fileBreadCrumbNormal']")
+	private WebElement dataAppContent;
+	
+	@FindBy(xpath="(//div[@class='ap-dropdown-option-item'])//input")
+	private static List<WebElement> catDropdownCheckboxes;
+	
+	@FindBy(xpath="((//div[@class='cmp-search-results__page ap-page-container'])//div[3])[position()=1 or position()=2 or position()=3 or position()=4 or position()=5 or position()=6 or position()=7 or position()=8 or position()=9 or position()=10]")
+	private static List<WebElement> resultList;
+	
+	@FindBy(xpath="(//a[@href='/us/en/my-products.html'])[1]")
+	private WebElement loginToMyProductLink;
+	
+	@FindBy(xpath="(//*[@id='searchProductDropdown']/div[2])//div")
+	private static List<WebElement> productDropdownItems;
+	
+	@FindBy(xpath="//*[@id='docDropdown']/div[2]//div")
+	private static List<WebElement> catDropdownItems;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -161,6 +228,191 @@ public class HomePage extends HelperFunctions {
 	public void setTitleforAuthor() {
 		
 	}
+	
+    public void setSearchButton() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	searchButton.click();
+    	HelperFunctions.staticWait(3);
+    	
+        searchInput.sendKeys("products");
+        searchInput.sendKeys(Keys.ENTER);
+        if(productDropdown.isDisplayed() && catDropdown.isDisplayed() && sortingDropdown.isDisplayed()) {
+        	Assert.assertTrue(true);
+        }else {
+        	Assert.assertTrue(false);
+        }
+        HelperFunctions.staticWait(3);
+        productDropdown.click();
+        changeNavigatorCheckbox.click();
+        HelperFunctions.staticWait(3);
+        catDropdown.click();
+        dataAppCheckbox.click();
+        documentationCheckbox.click();
+        catDropdown.click();
+        Assert.assertEquals(dataAppTitle.getText(), "Data Processing Addendum");
+        Assert.assertEquals(documentationTitle.getText(), "Documentation");
+        
+        dataAppTitle.click();
+        Driver.getDriver().switchTo().frame(0);
+        if(dataAppContent.isDisplayed()) {
+			Assert.assertTrue(true);
+		}else {
+			logger.error("Data App content is not displayed");
+			
+		}
+        
+        
+        
+        
+        
+        
+	}
+    
+    public void setSortedResult() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	searchButton.click();
+    	HelperFunctions.staticWait(3);
+    	
+        searchInput.sendKeys("products");
+        searchInput.sendKeys(Keys.ENTER);
+        HelperFunctions.staticWait(3);
+        productDropdown.click();
+        changeNavigatorCheckbox.click();
+        HelperFunctions.staticWait(3);
+        catDropdown.click();
+        for(int i=0; i<catDropdownCheckboxes.size(); i++)
+		{
+			if(catDropdownCheckboxes.get(i).isDisplayed() && catDropdownCheckboxes.get(i).isEnabled())
+			{
+                   System.out.println("Checkbox is displayed at index : " + i + " Clicking on it now");
+                   catDropdownCheckboxes.get(i).click();
+			}
+		}
+        HelperFunctions.staticWait(3);
+        catDropdown.click();
+        
+        ArrayList<String> obtainedList = new ArrayList<>(); 
+        for(WebElement we:resultList){
+        	   obtainedList.add(we.getText());
+        	}
+        	ArrayList<String> sortedList = new ArrayList<>();   
+        	for(String s:obtainedList){
+        	sortedList.add(s);
+        	}
+        	Collections.sort(sortedList);
+        	Assert.assertTrue(sortedList.equals(obtainedList));
+
+    
+    	
+    	
+    	
+    	
+    }
+    public void setDropdown() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	searchButton.click();
+    	HelperFunctions.staticWait(3);
+    	
+        searchInput.sendKeys("products");
+        searchInput.sendKeys(Keys.ENTER);
+        HelperFunctions.staticWait(3);
+        if(productDropdown.isEnabled() && productDropdown.isDisplayed()) 
+        { 
+           System.out.println("Product Dropdown is enabled and visible"); 
+        } 
+       else { 
+           System.out.println("Product Dropdown is not visible"); 
+       } 
+        productDropdown.click();
+        changeNavigatorCheckbox.click();
+        HelperFunctions.staticWait(3);
+        if(catDropdown.isEnabled() && catDropdown.isDisplayed()) 
+        { 
+           System.out.println("Category Dropdown is enabled and visible"); 
+        } 
+       else { 
+           System.out.println("Category Dropdown is not visible"); 
+       } 
+        catDropdown.click();
+        dataAppCheckbox.click();
+        documentationCheckbox.click();
+        catDropdown.click();
+        Assert.assertEquals(dataAppTitle.getText(), "Data Processing Addendum");
+        Assert.assertEquals(documentationTitle.getText(), "Documentation");
+        
+        dataAppTitle.click();
+        Driver.getDriver().switchTo().frame(0);
+        if(dataAppContent.isDisplayed()) {
+			Assert.assertTrue(true);
+		}else {
+			logger.error("Data App content is not displayed");
+			
+		}
+            
+	}
+    
+    public void setLogintoMyProduct() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	loginToMyProductLink.click();
+    }
+    
+    public void setDropdownList() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	searchButton.click();
+    	HelperFunctions.staticWait(3);
+    	
+        searchInput.sendKeys("products");
+        searchInput.sendKeys(Keys.ENTER);
+        HelperFunctions.staticWait(3);
+        if(productDropdown.isEnabled() && productDropdown.isDisplayed()) 
+        { 
+           System.out.println("Product Dropdown is enabled and visible"); 
+        } 
+       else { 
+           System.out.println("Product Dropdown is not visible"); 
+       }   
+        
+        
+    }
+    public void setDropdownList2() {
+    	for(WebElement eachProduct: productDropdownItems) {
+        	System.out.println(eachProduct.getText());
+        	if(eachProduct.getText().contains("Check-in") && eachProduct.getText().contains("Change Navigator")&& eachProduct.getText().contains("Costumer Link")
+    				&&eachProduct.getText().contains("Digital on Demand")&& eachProduct.getText().contains("Digital Operations Portal")&& eachProduct.getText().contains("Disclosure Checklist")
+    				&& eachProduct.getText().contains("Enterprise Control")&& eachProduct.getText().contains("Financial Wellness")
+    				&& eachProduct.getText().contains("Fluid Forecast")&& eachProduct.getText().contains("Insights Platform")&& eachProduct.getText().contains("Insights Officer")
+    				&& eachProduct.getText().contains("Interactions Hub")&& eachProduct.getText().contains("International Tax View")
+    				&& eachProduct.getText().contains("LDTI E-Learns")&& eachProduct.getText().contains("Listen Platform")
+    				&& eachProduct.getText().contains("Master Data Management")&& eachProduct.getText().contains("Media Intelligence")
+    				&& eachProduct.getText().contains("Model Edge")&& eachProduct.getText().contains("Origin Compliance")
+    				&& eachProduct.getText().contains("Partner Hub")&& eachProduct.getText().contains("Performance Analyzer")
+    				&& eachProduct.getText().contains("ProEdge")&& eachProduct.getText().contains("Ready Assess")
+    				&& eachProduct.getText().contains("Risk Detect - ABAC")&& eachProduct.getText().contains("Saratoga")
+    				&& eachProduct.getText().contains("Third Party Tracker")&& eachProduct.getText().contains("Transparency Hub")
+    				&& eachProduct.getText().contains("Workforce Architect")&& eachProduct.getText().contains("Workforce Orchestrator")) {
+        		Assert.assertTrue(true);
+        	}else {
+        		Assert.assertTrue(false);
+        	}
+        }
+        
+        for(WebElement eachCat: catDropdownItems) {
+        	System.out.println(eachCat.getText());
+        	if(eachCat.getText().contains("Hosted Software Terms") && eachCat.getText().contains("Patent Marking")&& eachCat.getText().contains("Tool License Terms")
+    				&& eachCat.getText().contains("SMS Terms & Acceptable Use Policy")&& eachCat.getText().contains("Terms of Use")&& eachCat.getText().contains("Offering Overview")
+    				&& eachCat.getText().contains("Maintenance & Support")&& eachCat.getText().contains("Data Processing Addendum")
+    				&& eachCat.getText().contains("Security")&& eachCat.getText().contains("Compliance")&& eachCat.getText().contains("Privacy")
+    				&& eachCat.getText().contains("Accessibility")&& eachCat.getText().contains("Terms & Conditions")
+    				&& eachCat.getText().contains("Evaluation License")&& eachCat.getText().contains("Documentation")) {
+        		Assert.assertTrue(true);
+        	}else {
+        		Assert.assertTrue(false);
+        	}
+        }}
+        
+        
+        
+    
 	
 	
 	
