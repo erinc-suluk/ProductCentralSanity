@@ -4,15 +4,19 @@ import java.io.IOException;
 
 
 import java.util.List;
+import java.util.UUID;
 
 
-import org.apache.log4j.Logger;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
+import com.github.javafaker.Faker;
 import com.pwc.productcentral.Driver;
 import com.pwc.productcentral.HelperFunctions;
 
@@ -96,6 +100,11 @@ public class ProductListingPage extends HelperFunctions {
 	@FindBy(xpath="//a[@data-product-name='Risk']")
 	private WebElement riskProduct;
 	
+	@FindBy(xpath="//input[@placeholder='Search Products']")
+	private WebElement productSearchBar;
+	
+	@FindBy(xpath="//div[@class='has-no-results']")
+	private WebElement noResult;
 	
 	
 	
@@ -103,7 +112,8 @@ public class ProductListingPage extends HelperFunctions {
 	
 	
 	
-	Logger logger=Logger.getLogger("ProductListingPage");
+	
+
 
 
    
@@ -123,7 +133,7 @@ public class ProductListingPage extends HelperFunctions {
 			if(link.getText().contains(expectedLink1)&& link.getText().contains(expectedLink2)
 					&& link.getText().contains(expectedLink3) && link.getText().contains(expectedLink4)) {
 				System.out.println("All the links are visible on the content page");
-			}else {logger.info("Verifying links on content page has been failed");}}}
+			}else {}}}
 
     //public final static String LINKS_ATTRIBUTE = "href";
 
@@ -331,7 +341,22 @@ public class ProductListingPage extends HelperFunctions {
 			
 		
 	}
-	  
+	
+	public void setSearchBarKeywordforNegativeTest() {
+		HelperFunctions.waitForPageToLoad(5);
+		productSearchBar.click();
+		Faker faker=new Faker();
+		productSearchBar.sendKeys(faker.name().firstName());
+		if(noResult.isDisplayed() && noResult.getText().contains("Nothing matches your results")) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+		
+		
+	}
+	
+	
 	
     
     

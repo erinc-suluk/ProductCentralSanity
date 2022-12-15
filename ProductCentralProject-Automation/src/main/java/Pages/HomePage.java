@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -130,7 +130,7 @@ public class HomePage extends HelperFunctions {
 	
 
 	
-	static Logger logger=Logger.getLogger("HomePage");
+	//static Logger logger=Logger.getLogger("HomePage");
 	
 	
 	
@@ -140,7 +140,7 @@ public class HomePage extends HelperFunctions {
           if (image) {
 	         Assert.assertTrue(true);
 	      } else {
-	         logger.error("The promotion banner does not contain an image");
+	         //logger.error("The promotion banner does not contain an image");
 	      }
 		
 	}
@@ -157,7 +157,7 @@ public class HomePage extends HelperFunctions {
 		if(promotionBanner.isDisplayed()) {
 			 Assert.assertTrue(true);
 	      } else {
-	         logger.error("The promotion banner is not visible to all users on homepage");
+	        // logger.error("The promotion banner is not visible to all users on homepage");
 	      }
 		
 	}
@@ -169,7 +169,7 @@ public class HomePage extends HelperFunctions {
 			if(TilesItems.isDisplayed()) {
 				Assert.assertTrue(true);
 			}else {
-				logger.error("Missing home page tile");
+				//logger.error("Missing home page tile");
 			}
 	}
 		
@@ -180,7 +180,7 @@ public class HomePage extends HelperFunctions {
 		if(landingPageComponentForLegalTile.isDisplayed()) {
 			Assert.assertTrue(true);
 		}else {
-			logger.error("Landing page component does not exist");
+			//logger.error("Landing page component does not exist");
 		}
 		
 	}
@@ -190,7 +190,7 @@ public class HomePage extends HelperFunctions {
 			if(eachTitle.isDisplayed()) {
 				Assert.assertTrue(true);
 			}else {
-				logger.error("Tiles do not contain a title");
+				//logger.error("Tiles do not contain a title");
 			}
 	}
 		
@@ -209,7 +209,7 @@ public class HomePage extends HelperFunctions {
 			if(eachDescription.getCssValue("-webkit-line-clamp").equals("6")) {
 				Assert.assertTrue(true);
 			}else {
-				logger.error("The description is more than 6 lines");
+//				logger.error("The description is more than 6 lines");
 				
 			}
 		}
@@ -220,7 +220,7 @@ public class HomePage extends HelperFunctions {
 		if(title.isDisplayed() && descriptionOfTitle.isDisplayed()) {
 			Assert.assertTrue(true);
 		}else {
-			logger.error("The title or description does not exist on homepage");
+//			logger.error("The title or description does not exist on homepage");
 			
 		}
 	}
@@ -257,7 +257,7 @@ public class HomePage extends HelperFunctions {
         if(dataAppContent.isDisplayed()) {
 			Assert.assertTrue(true);
 		}else {
-			logger.error("Data App content is not displayed");
+//			logger.error("Data App content is not displayed");
 			
 		}
         
@@ -345,7 +345,7 @@ public class HomePage extends HelperFunctions {
         if(dataAppContent.isDisplayed()) {
 			Assert.assertTrue(true);
 		}else {
-			logger.error("Data App content is not displayed");
+//			logger.error("Data App content is not displayed");
 			
 		}
             

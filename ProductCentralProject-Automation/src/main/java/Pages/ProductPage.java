@@ -174,11 +174,14 @@ public class ProductPage extends HelperFunctions {
 		
 		 JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
 	        js.executeScript("arguments[0].scrollIntoView(true);", footerContent);
+	        System.out.println(footerContent.getText());
+	       
 	        if(footerContent.isDisplayed() && footerLinkGroup.isDisplayed() ) {
 	        	Assert.assertTrue(true);
 	        }else {
 	        	Assert.assertTrue(false);
 	        }
+	      
 	
 	}
 	

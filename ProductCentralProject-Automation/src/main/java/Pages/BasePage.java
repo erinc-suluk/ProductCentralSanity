@@ -2,7 +2,7 @@ package Pages;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
@@ -56,7 +56,7 @@ public class BasePage extends HelperFunctions {
 	
 	@FindBy(xpath="//span[@class='ap-icon icon-enter-left-outline']")
 	private static WebElement expandButton;
-	static Logger logger=Logger.getLogger("BasePage");
+	
 	
 	
 	

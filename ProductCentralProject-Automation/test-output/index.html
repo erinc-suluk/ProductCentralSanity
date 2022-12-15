@@ -2,10 +2,12 @@
 
 <html>
   <head>
+  <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -22,6 +24,7 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
@@ -48,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\erong\AppData\Local\Temp\testng-eclipse-1441112290\testng-customsuite.xml</span>
+                    <span>C:\Users\erong\AppData\Local\Temp\testng-eclipse-1797107899\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -101,7 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.pwc.productcentral.SanityTestCases" class="method navigator-link" hash-for-method="WEB_47">WEB_47</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.pwc.productcentral.SanityTestCases" class="method navigator-link" hash-for-method="WEB_30">WEB_30</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -124,9 +127,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="WEB_47">
-                  </a> <!-- WEB_47 -->
-                  <span class="method-name">WEB_47</span>
+                  <a name="WEB_30">
+                  </a> <!-- WEB_30 -->
+                  <span class="method-name">WEB_30</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -134,14 +137,14 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\erong\AppData\Local\Temp\testng-eclipse-1441112290\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\erong\AppData\Local\Temp\testng-eclipse-1797107899\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite parallel=&quot;none&quot; name=&quot;Default suite&quot;&gt;
-  &lt;test name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.pwc.productcentral.SanityTestCases&quot;/&gt;
     &lt;/classes&gt;
@@ -185,14 +188,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'WEB_47')
+data.setCell(0, 1, 'WEB_30')
 data.setCell(0, 2, 'com.pwc.productcentral.SanityTestCases')
-data.setCell(0, 3, 4583);
+data.setCell(0, 3, 1675);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -207,121 +210,123 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">55 ignored methods</span>
+            <span class="header-content">56 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.pwc.productcentral.SanityTestCases</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">WEB_13</span>
-                <br/>
-                <span class="ignored-method-name">WEB_11</span>
-                <br/>
-                <span class="ignored-method-name">WEB_10</span>
-                <br/>
-                <span class="ignored-method-name">WEB_15</span>
-                <br/>
-                <span class="ignored-method-name">WEB_12</span>
-                <br/>
-                <span class="ignored-method-name">WEB_19</span>
-                <br/>
-                <span class="ignored-method-name">WEB_16</span>
-                <br/>
-                <span class="ignored-method-name">WEB_18</span>
-                <br/>
-                <span class="ignored-method-name">WEB_17</span>
-                <br/>
-                <span class="ignored-method-name">WEB_14_2</span>
-                <br/>
-                <span class="ignored-method-name">WEB_24</span>
-                <br/>
-                <span class="ignored-method-name">WEB_14_1</span>
-                <br/>
-                <span class="ignored-method-name">WEB_14_3</span>
-                <br/>
-                <span class="ignored-method-name">WEB_22</span>
-                <br/>
-                <span class="ignored-method-name">WEB_21</span>
-                <br/>
-                <span class="ignored-method-name">WEB_26</span>
-                <br/>
-                <span class="ignored-method-name">WEB_23</span>
-                <br/>
-                <span class="ignored-method-name">WEB_20</span>
-                <br/>
-                <span class="ignored-method-name">WEB_25</span>
-                <br/>
-                <span class="ignored-method-name">WEB_27</span>
-                <br/>
-                <span class="ignored-method-name">WEB_29</span>
-                <br/>
-                <span class="ignored-method-name">WEB_28</span>
-                <br/>
-                <span class="ignored-method-name">WEB_5_2</span>
-                <br/>
-                <span class="ignored-method-name">WEB_35</span>
-                <br/>
-                <span class="ignored-method-name">WEB_33</span>
-                <br/>
-                <span class="ignored-method-name">WEB_30</span>
-                <br/>
-                <span class="ignored-method-name">WEB_32</span>
-                <br/>
-                <span class="ignored-method-name">WEB_37</span>
-                <br/>
-                <span class="ignored-method-name">WEB_34</span>
-                <br/>
-                <span class="ignored-method-name">WEB_31</span>
-                <br/>
-                <span class="ignored-method-name">WEB_36</span>
-                <br/>
-                <span class="ignored-method-name">WEB_38</span>
-                <br/>
-                <span class="ignored-method-name">WEB_39</span>
-                <br/>
-                <span class="ignored-method-name">WEB14</span>
-                <br/>
-                <span class="ignored-method-name">WEB_5</span>
-                <br/>
                 <span class="ignored-method-name">WEB_3</span>
-                <br/>
-                <span class="ignored-method-name">WEB_15_1</span>
-                <br/>
-                <span class="ignored-method-name">WEB_46</span>
                 <br/>
                 <span class="ignored-method-name">WEB_6</span>
                 <br/>
                 <span class="ignored-method-name">WEB_9</span>
                 <br/>
-                <span class="ignored-method-name">WEB_15_3</span>
-                <br/>
-                <span class="ignored-method-name">WEB_40</span>
-                <br/>
                 <span class="ignored-method-name">WEB_4</span>
                 <br/>
                 <span class="ignored-method-name">WEB_7</span>
                 <br/>
-                <span class="ignored-method-name">WEB_36_1</span>
+                <span class="ignored-method-name">WEB_14_2</span>
                 <br/>
-                <span class="ignored-method-name">WEB_15_2</span>
-                <br/>
-                <span class="ignored-method-name">WEB_44</span>
+                <span class="ignored-method-name">WEB_40</span>
                 <br/>
                 <span class="ignored-method-name">WEB_8</span>
                 <br/>
-                <span class="ignored-method-name">WEB_41</span>
+                <span class="ignored-method-name">WEB_14_1</span>
                 <br/>
-                <span class="ignored-method-name">WEB_43</span>
+                <span class="ignored-method-name">WEB_42</span>
+                <br/>
+                <span class="ignored-method-name">WEB_47</span>
+                <br/>
+                <span class="ignored-method-name">WEB_14_3</span>
+                <br/>
+                <span class="ignored-method-name">WEB_44</span>
                 <br/>
                 <span class="ignored-method-name">WEB_1</span>
+                <br/>
+                <span class="ignored-method-name">WEB_41</span>
+                <br/>
+                <span class="ignored-method-name">WEB_46</span>
+                <br/>
+                <span class="ignored-method-name">WEB_2</span>
                 <br/>
                 <span class="ignored-method-name">WEB_48</span>
                 <br/>
                 <span class="ignored-method-name">WEB_45</span>
                 <br/>
-                <span class="ignored-method-name">WEB_42</span>
+                <span class="ignored-method-name">WEB_49</span>
                 <br/>
-                <span class="ignored-method-name">WEB_2</span>
+                <span class="ignored-method-name">WEB_43</span>
+                <br/>
+                <span class="ignored-method-name">WEB_5_2</span>
+                <br/>
+                <span class="ignored-method-name">WEB_5</span>
+                <br/>
+                <span class="ignored-method-name">WEB_11</span>
+                <br/>
+                <span class="ignored-method-name">WEB_13</span>
+                <br/>
+                <span class="ignored-method-name">WEB_15</span>
+                <br/>
+                <span class="ignored-method-name">WEB_12</span>
+                <br/>
+                <span class="ignored-method-name">WEB_17</span>
+                <br/>
+                <span class="ignored-method-name">WEB_19</span>
+                <br/>
+                <span class="ignored-method-name">WEB_16</span>
+                <br/>
+                <span class="ignored-method-name">WEB_10</span>
+                <br/>
+                <span class="ignored-method-name">WEB_18</span>
+                <br/>
+                <span class="ignored-method-name">WEB_15_1</span>
+                <br/>
+                <span class="ignored-method-name">WEB_36_1</span>
+                <br/>
+                <span class="ignored-method-name">WEB_15_3</span>
+                <br/>
+                <span class="ignored-method-name">WEB_20</span>
+                <br/>
+                <span class="ignored-method-name">WEB_15_2</span>
+                <br/>
+                <span class="ignored-method-name">WEB_25</span>
+                <br/>
+                <span class="ignored-method-name">WEB_22</span>
+                <br/>
+                <span class="ignored-method-name">WEB_24</span>
+                <br/>
+                <span class="ignored-method-name">WEB_26</span>
+                <br/>
+                <span class="ignored-method-name">WEB_23</span>
+                <br/>
+                <span class="ignored-method-name">WEB_28</span>
+                <br/>
+                <span class="ignored-method-name">WEB_27</span>
+                <br/>
+                <span class="ignored-method-name">WEB_21</span>
+                <br/>
+                <span class="ignored-method-name">WEB_29</span>
+                <br/>
+                <span class="ignored-method-name">WEB_31</span>
+                <br/>
+                <span class="ignored-method-name">WEB_36</span>
+                <br/>
+                <span class="ignored-method-name">WEB_33</span>
+                <br/>
+                <span class="ignored-method-name">WEB_35</span>
+                <br/>
+                <span class="ignored-method-name">WEB_37</span>
+                <br/>
+                <span class="ignored-method-name">WEB_34</span>
+                <br/>
+                <span class="ignored-method-name">WEB_39</span>
+                <br/>
+                <span class="ignored-method-name">WEB_38</span>
+                <br/>
+                <span class="ignored-method-name">WEB_32</span>
+                <br/>
+                <span class="ignored-method-name">WEB14</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -340,19 +345,20 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">initTest</span>
-                <span class="method-start">127 ms</span>
+                <span class="method-start">116 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">WEB_47</span>
-                <span class="method-start">259 ms</span>
+                <span class="method-name">WEB_30</span>
+                <span class="method-start">239 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">closingBrowser</span>
-                <span class="method-start">4852 ms</span>
+                <span class="method-start">1934 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
 </html>
