@@ -21,7 +21,7 @@ public class LegalPage extends HelperFunctions {
 	@FindBy(xpath="//a[@href='/us/en/automation/legal/offering-overview.html']")
 	private WebElement offeringOverviewLink;
 	
-	@FindBy(xpath="/us/en/automation/legal/data-processing-addendum.html")
+	@FindBy(xpath="//a[@href='/us/en/automation/legal/data-processing-addendum.html']")
 	private WebElement dataProcessingLink;
 	
 	@FindBy(xpath="//a[@href='/us/en/products/change-navigator/offering-overview.html']")
@@ -56,6 +56,11 @@ public class LegalPage extends HelperFunctions {
 	
 	@FindBy(xpath="(//div[@class='cmp-document-tiles__entry-info-container'])//div[2]")
 	private static List<WebElement> descriptionOfTiles;
+	
+	@FindBy(xpath="//a[@id='referrer-module']")
+	private WebElement backtoLegalBreadcrumbfromContent;
+	
+	
 	
 	
 	
@@ -146,7 +151,31 @@ public class LegalPage extends HelperFunctions {
 		String expectedContentTitle2="Offering Overview";
 		Assert.assertEquals(actualContentTitle2, expectedContentTitle2,"Actual and expected content Titles do not match");
 	}
+	public void setDisplayTilePerDocumentCat() {
+		HelperFunctions.waitForPageToLoad(3);
+		for(WebElement eachTile: legalTiles) {
+			if(eachTile.getText().contains("Offering Overview")&& eachTile.getText().contains("Maintenance & Support")&& eachTile.getText().contains("Data Processing Addendum")
+    				) {
+				Assert.assertTrue(true);
+			}else {
+				Assert.assertTrue(false);
+			}
+		}
+	}
 	
+	public void setBreadcrumb() {
+		HelperFunctions.waitForPageToLoad(3);
+		maintenanceAndSupportLink.click();
+		Assert.assertTrue(backtoLegalBreadcrumbfromContent.isDisplayed());
+		backtoLegalBreadcrumbfromContent.click();
+		HelperFunctions.waitForPageTitle("Legal");
+		offeringOverviewLink.click();
+		Assert.assertTrue(backtoLegalBreadcrumbfromContent.isDisplayed());
+		backtoLegalBreadcrumbfromContent.click();
+		dataProcessingLink.click();
+		Assert.assertTrue(backtoLegalBreadcrumbfromContent.isDisplayed());
+		backtoLegalBreadcrumbfromContent.click();
+	}
 	
 	
 	

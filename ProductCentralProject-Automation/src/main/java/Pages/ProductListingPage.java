@@ -106,6 +106,12 @@ public class ProductListingPage extends HelperFunctions {
 	@FindBy(xpath="//div[@class='has-no-results']")
 	private WebElement noResult;
 	
+	@FindBy(xpath="//div[@class='cmp-document-tiles__entry-title']")
+	private static List<WebElement> titleofTiles;
+	
+	@FindBy(xpath="//span[@class='cmp-pdf-highlights__title']")
+	private WebElement contentTitle;
+	
 	
 	
 	
@@ -135,28 +141,8 @@ public class ProductListingPage extends HelperFunctions {
 				System.out.println("All the links are visible on the content page");
 			}else {}}}
 
-    //public final static String LINKS_ATTRIBUTE = "href";
 
-	/*public void setAllLinks2() {
-		for(WebElement link:allLinks2){
-            try {
-                String urlLink = link.getAttribute(LINKS_ATTRIBUTE);
-                URL url = new URL(urlLink);
-                HttpURLConnection httpURLConnect=(HttpURLConnection)url.openConnection();
-                httpURLConnect.setConnectTimeout(5000);
-                httpURLConnect.connect();
-                if(httpURLConnect.getResponseCode()>=400)
-                {
-                    System.out.println(urlLink+" - "+httpURLConnect.getResponseMessage()+" is a broken link");
-                }
-                else{
-                    System.out.println(urlLink+" - "+httpURLConnect.getResponseMessage());
-                }
-            }catch (Exception e) {
-            }
-        }
-
-	}*/
+	
     
     public void setLinks() {
     	HelperFunctions.waitForPageToLoad(5);
@@ -356,6 +342,27 @@ public class ProductListingPage extends HelperFunctions {
 		
 	}
 	
+	public void setDocumentTileLine() {
+		HelperFunctions.waitForPageToLoad(5);
+		cloudProduct.click();
+		for(WebElement eachProductTitle: titleofTiles) {
+			System.out.println(eachProductTitle.getCssValue("-webkit-line-clamp"));
+			if(eachProductTitle.getCssValue("-webkit-line-clamp").equals("2")) {
+				Assert.assertTrue(true);
+			}else {
+				Assert.assertTrue(false);
+				
+			}
+		}
+	}
+	public void setContentPageSameTab() {
+		HelperFunctions.waitForPageToLoad(5);
+		cloudProduct.click();
+		offeringOverviewFromCloud.click();
+		String actualTitle="Offering Overview";
+		String expectedTitle=contentTitle.getText();
+		Assert.assertEquals(actualTitle, expectedTitle, "Actual and expected title do not match");
+	}
 	
 	
     

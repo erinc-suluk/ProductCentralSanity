@@ -43,6 +43,9 @@ public class LoginPageObjects extends HelperFunctions{
 	@FindBy(xpath="//a[@id='loginLink']")
 	private WebElement loginLink;
 	
+	@FindBy(xpath="//div[@data-href='/content/pc/us/en/my-products/product-4.html']")
+	private WebElement loginLink2;
+	
 	
 	
 	public void setLogin() {
@@ -57,7 +60,7 @@ public class LoginPageObjects extends HelperFunctions{
 	    Driver.getDriver().switchTo().window(tabs.get(1));
 	    Driver.getDriver().get("https://productcentral-qa.products.pwc.com/");
 	    HelperFunctions.staticWait(5);
-	    loginLink.click();
+	    loginLink2.click();
 	    HelperFunctions.staticWait(5);
 	    
 	}

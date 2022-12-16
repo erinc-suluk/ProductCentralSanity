@@ -5,9 +5,9 @@
     <classes>
       <class name="com.pwc.productcentral.SanityTestCases">
         <methods>
+          <include name="WEB_49"/>
           <include name="closingBrowser"/>
           <include name="setUp"/>
-          <include name="WEB_30"/>
           <include name="initTest"/>
         </methods>
       </class> <!-- com.pwc.productcentral.SanityTestCases -->
