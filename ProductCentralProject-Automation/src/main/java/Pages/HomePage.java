@@ -115,6 +115,18 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="//*[@id='docDropdown']/div[2]//div")
 	private static List<WebElement> catDropdownItems;
 	
+	@FindBy(xpath="//div[@data-href='/content/pc/us/en/my-products/product-4.html']")
+	private WebElement loginLink;
+	
+	@FindBy(xpath="//img[@id='PwCLogo']")
+	private WebElement pwcLogo;
+	
+	@FindBy(xpath="//input[@id='initEmail']")
+	private WebElement email;
+	
+	@FindBy(xpath="//button[.='Next']")
+	private WebElement next;
+	
 	
 	
 	
@@ -200,7 +212,7 @@ public class HomePage extends HelperFunctions {
 	public void setOneStopTitle() {
 		String actualTitle=oneStopTitle.getText();
 		String expectedTitle="One stop shop, for all your Product needs";
-		Assert.assertEquals(actualTitle, expectedTitle);
+		Assert.assertEquals(actualTitle, expectedTitle, "Actual and expected title do not match");
 	}
 	
 	public void setDescriptionOfTiles() {
@@ -409,6 +421,16 @@ public class HomePage extends HelperFunctions {
         		Assert.assertTrue(false);
         	}
         }}
+    
+    public void setLoginToMyProductLink() {
+    	HelperFunctions.waitForPageToLoad(3);
+    	loginLink.click();
+    	if(pwcLogo.isDisplayed() && email.isDisplayed() && next.isDisplayed()) {
+    		Assert.assertTrue(true);
+    	}else {
+    		Assert.assertTrue(false);
+    	}
+    }
         
         
         

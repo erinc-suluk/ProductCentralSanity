@@ -85,6 +85,9 @@ public class ProductPage extends HelperFunctions {
 	@FindBy(xpath="//*[@id=\"listPage\"]/div/div/div[2]/div[3]")
 	private WebElement cardCat;
 	
+	@FindBy(xpath="//div[@id='tagElements']")
+	private WebElement documentDropdown;
+	
 	
 	@FindBy(xpath="//div[@class='cmp-all-resources__card-category']")
 	private WebElement cardCategory;
@@ -104,31 +107,34 @@ public class ProductPage extends HelperFunctions {
 	@FindBy(xpath="//input[@id='gatedSearchInput']")
 	private WebElement myProductSearchField;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample10.pdf.coredownload.inline.pdf.coredownload.inline.pdf']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample10.pdf.coredownload.inline.pdf']")
 	private WebElement resource1forProduct2;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample13.png.coredownload.inline.png.coredownload.inline.png']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample13.png.coredownload.inline.png']")
 	private WebElement resource2forProduct2;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample16.jpg.coredownload.inline.jpg.coredownload.inline.jpg']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/sample16.jpg.coredownload.inline.jpg']")
 	private WebElement resource3forProduct2;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/7E1c.gif.coredownload.inline.gif.coredownload.inline.gif']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/7E1c.gif.coredownload.inline.gif']")
 	private WebElement resource4forProduct2;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/gif.coredownload.inline.gif.gif.coredownload.inline.gif.coredownload.inline.gif']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-2/myproducts/gif.gif.coredownload.inline.gif']")
 	private WebElement resource5forProduct2;
+	
+	@FindBy(xpath="//a[@href='/us/en/my-products/product-2.html']")
+	private WebElement product2;
 	
 	@FindBy(xpath="//a[@href='/us/en/my-products/product-4.html']")
 	private WebElement product4;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/Transparency-Hub-Support-Guide-test.pdf.coredownload.inline.pdf.coredownload.inline.pdf']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/Transparency-Hub-Support-Guide-test.pdf.coredownload.inline.pdf']")
 	private WebElement resource1forProduct4;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/Resell Data Processing addendum.png.coredownload.inline.png.coredownload.inline.png']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/Resell Data Processing addendum.png.coredownload.inline.png']")
 	private WebElement resource2forProduct4;
 	
-	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/sample7.jpg.coredownload.inline.jpg.coredownload.inline.jpg']")
+	@FindBy(xpath="//a[@href='/content/dam/productcentral/en_us/products/product-4/myproducts/sample7.jpg.coredownload.inline.jpg']")
 	private WebElement resource3forProduct4;
 	
 	
@@ -347,6 +353,7 @@ public void setMyProductSearch() {
 }
 
 public void setResourcesBasedonProducts() {
+	product2.click();
 	JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
     js.executeScript("arguments[0].scrollIntoView(true);", allResources);
     
@@ -376,6 +383,22 @@ public void setResourcesBasedonProducts() {
   
    
    
+}
+
+public void setNotSupportMultiSelect() {
+	product2.click();
+	HelperFunctions.waitForPageToLoad(3);
+	JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
+    js.executeScript("arguments[0].scrollIntoView(true);", viewMoreButton);
+	   documentDropdown.click();    
+	    
+	    
+		for(WebElement tags:myProductCatDropdownList) {
+			tags.click();
+			Assert.assertFalse(tags.isDisplayed());
+			
+		}
+	   
 }
 	
 	

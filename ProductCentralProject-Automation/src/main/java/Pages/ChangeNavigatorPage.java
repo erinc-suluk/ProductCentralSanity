@@ -50,6 +50,9 @@ public class ChangeNavigatorPage extends HelperFunctions {
 	@FindBy(xpath="(//input[@name='./jcr:title'])[2]")
 	private WebElement titleEdit;
 	
+	@FindBy(xpath="//button[@icon='edit']")
+	private WebElement editButton;
+	
 	@FindBy(xpath="//button[@class='cq-dialog-header-action cq-dialog-submit coral3-Button coral3-Button--minimal']")
 	private WebElement checkButton;
 	
@@ -74,7 +77,7 @@ public class ChangeNavigatorPage extends HelperFunctions {
 	@FindBy(xpath="(//coral-columnview-column[@data-foundation-layout-columnview-columnid='/content/pc/us/en'])//coral-columnview-item")
 	private static List<WebElement> contentOptions;
 	
-	@FindBy(xpath="//div[@title='Automation']")
+	@FindBy(xpath="//*[@id=\"coral-id-496\"]/div[1]")
 	private WebElement automation;
 	@FindBy(xpath="//coral-columnview-item[@data-granite-collection-item-id='/content/pc/us/en/automation/my-products']")
 	private WebElement myproduct;
@@ -123,10 +126,67 @@ public class ChangeNavigatorPage extends HelperFunctions {
 	@FindBy(xpath="//div[@title='Products']")
 	private WebElement products;
 	
+	@FindBy(xpath="//div[@title='Change Navigator']")
+	private WebElement changeNavigatorLink;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=1]")
+	private WebElement firstPositionAuthor;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=2]")
+	private WebElement secondPositionAuthor;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=3]")
+	private WebElement thirdPositionAuthor;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=4]")
+	private WebElement forthPositionAuthor;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=9]")
+	private WebElement fifthPositionAuthor;
+	
+	@FindBy(xpath="(((//coral-columnview-column-content[@role='presentation'])[6])//coral-columnview-item)[position()=10]")
+	private WebElement sixthPositionAuthor;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=1]")
+	private WebElement firstTitle;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=2]")
+	private WebElement secondTitle;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=3]")
+	private WebElement thirdTitle;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=4]")
+	private WebElement forthTitle;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=5]")
+	private WebElement fifthTitle;
+	
+	@FindBy(xpath="((//div[@class='cmp-document-tiles'])//div//a)[position()=6]")
+	private WebElement sixthTitle;
+	
+	@FindBy(xpath="//img[@src='/content/pc/us/en/products/change-navigator/offering-overview.thumb.48.48.png?ck=1665588252']")
+	private WebElement offerinfOverviewImage;
+	
+	@FindBy(xpath="//img[@src='/content/pc/us/en/products/change-navigator/terms---conditions.thumb.48.48.png?ck=']")
+	private WebElement termsAndConditionsImage;
+	
+	@FindBy(xpath="//a[@href='/us/en/products/change-navigator/offering-overview.html']")
+	private WebElement offeringOverviewLink;
+	
+	
+	
+	
+	
+
+	
 	
 	
 	@FindBy(xpath="((//div[@class='cmp-all-resources__cards-page ap-page-container'])//div//a)[position()=1 or position()=2 or position()=3 or position()=4 or position()=5]")
 	private static List<WebElement> first5resources;
+	
+	@FindBy(xpath="((//coral-columnview-column-content[@role='presentation'])[4])//coral-columnview-item//div")
+	private static List<WebElement> contentOptions2;
 	
 	
 
@@ -334,6 +394,22 @@ for(WebElement eachporttag: portfolioTags) {
     
     }
     
+    public void setDate2() {
+    	sites.click();
+    	productcentral.click();
+    	us.click();
+    	en.click();
+    	HelperFunctions.staticWait(5);
+    	for(WebElement element: contentOptions2) {
+    		System.out.println(element.getText());
+    	}
+    }
+    	
+    	
+    
+    
+    
+    
     
     public void setCombination() {
     	sites.click();
@@ -355,6 +431,60 @@ for(WebElement eachporttag: portfolioTags) {
     		}
     	}
     	
+    	
+    	
+    	
+    }
+    
+    public void setHyperlinks() {
+    	
+    	sites.click();
+    	productcentral.click();
+    	us.click();
+    	en.click();
+    	HelperFunctions.staticWait(3);
+    	products.click();
+    	HelperFunctions.staticWait(3);
+    	changeNavigatorLink.click();
+    	HelperFunctions.staticWait(3);
+    	String expectedTitle="Offering Overview";
+    	String expectedTitle2="Terms & Conditions";
+    	String expectedTitle3="Maintenance & Support";
+    	String expectedTitle4="Offering Overview";
+    	String expectedTitle5="Documentation";
+    	String expectedTitle6="Data Processing Addendum";
+    	Assert.assertTrue(firstPositionAuthor.getText().contains(expectedTitle));
+    	Assert.assertTrue(secondPositionAuthor.getText().contains(expectedTitle2));
+    	Assert.assertTrue(thirdPositionAuthor.getText().contains(expectedTitle3));
+    	Assert.assertTrue(forthPositionAuthor.getText().contains(expectedTitle4));
+    	Assert.assertTrue(fifthPositionAuthor.getText().contains(expectedTitle5));
+    	Assert.assertTrue(sixthPositionAuthor.getText().contains(expectedTitle6));
+    	offerinfOverviewImage.click();
+    	editButton.click();
+    	HelperFunctions.waitForPageToLoad(5);
+    
+	    ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	    Driver.getDriver().switchTo().window(tabs.get(1));
+    	System.out.println(Driver.getDriver().getTitle());
+	    Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedTitle));
+	  
+	    ArrayList<String> tabs2 = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+	    Driver.getDriver().switchTo().window(tabs2.get(1));
+	    
+	    Driver.getDriver().get("https://productcentral-qa.products.pwc.com/content/pc/us/en/products/change-navigator.html");
+	    HelperFunctions.waitForPageToLoad(5);
+	    Assert.assertTrue(firstTitle.getText().contains(expectedTitle));
+	    Assert.assertTrue(secondTitle.getText().contains(expectedTitle2));
+	    Assert.assertTrue(thirdTitle.getText().contains(expectedTitle3));
+	    Assert.assertTrue(forthTitle.getText().contains(expectedTitle4));
+	    Assert.assertTrue(fifthTitle.getText().contains(expectedTitle5));
+	    Assert.assertTrue(sixthTitle.getText().contains(expectedTitle6));
+	    
+	    offeringOverviewLink.click();
+	    HelperFunctions.waitForPageTitle(expectedTitle);
+	    String actualURL=Driver.getDriver().getCurrentUrl();
+	    String expectedURL="https://productcentral-qa.products.pwc.com/us/en/products/change-navigator/offering-overview.html";
+	    Assert.assertEquals(actualURL, expectedURL, "Actual and expected URL don't match");
     	
     	
     	
