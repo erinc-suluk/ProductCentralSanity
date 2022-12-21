@@ -115,6 +115,9 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="//*[@id='docDropdown']/div[2]//div")
 	private static List<WebElement> catDropdownItems;
 	
+	@FindBy(xpath="(//div[@class='ap-dropdown-list show'])[2]")
+	private static List<WebElement> catDropdownList;
+	
 	@FindBy(xpath="//div[@data-href='/content/pc/us/en/my-products/product-4.html']")
 	private WebElement loginLink;
 	
@@ -126,6 +129,7 @@ public class HomePage extends HelperFunctions {
 	
 	@FindBy(xpath="//button[.='Next']")
 	private WebElement next;
+	
 	
 	
 	
@@ -387,35 +391,27 @@ public class HomePage extends HelperFunctions {
         
     }
     public void setDropdownList2() {
-    	for(WebElement eachProduct: productDropdownItems) {
+    	HelperFunctions.staticWait(3);
+    	productDropdown.click();
+    	for(WebElement eachProduct: productDropdownList) {
         	System.out.println(eachProduct.getText());
-        	if(eachProduct.getText().contains("Check-in") && eachProduct.getText().contains("Change Navigator")&& eachProduct.getText().contains("Costumer Link")
-    				&&eachProduct.getText().contains("Digital on Demand")&& eachProduct.getText().contains("Digital Operations Portal")&& eachProduct.getText().contains("Disclosure Checklist")
-    				&& eachProduct.getText().contains("Enterprise Control")&& eachProduct.getText().contains("Financial Wellness")
-    				&& eachProduct.getText().contains("Fluid Forecast")&& eachProduct.getText().contains("Insights Platform")&& eachProduct.getText().contains("Insights Officer")
-    				&& eachProduct.getText().contains("Interactions Hub")&& eachProduct.getText().contains("International Tax View")
-    				&& eachProduct.getText().contains("LDTI E-Learns")&& eachProduct.getText().contains("Listen Platform")
-    				&& eachProduct.getText().contains("Master Data Management")&& eachProduct.getText().contains("Media Intelligence")
-    				&& eachProduct.getText().contains("Model Edge")&& eachProduct.getText().contains("Origin Compliance")
-    				&& eachProduct.getText().contains("Partner Hub")&& eachProduct.getText().contains("Performance Analyzer")
-    				&& eachProduct.getText().contains("ProEdge")&& eachProduct.getText().contains("Ready Assess")
-    				&& eachProduct.getText().contains("Risk Detect - ABAC")&& eachProduct.getText().contains("Saratoga")
-    				&& eachProduct.getText().contains("Third Party Tracker")&& eachProduct.getText().contains("Transparency Hub")
-    				&& eachProduct.getText().contains("Workforce Architect")&& eachProduct.getText().contains("Workforce Orchestrator")) {
+        	if(eachProduct.getText().contains("Change Navigator")&& eachProduct.getText().contains("Financial Wellness")) {
         		Assert.assertTrue(true);
         	}else {
         		Assert.assertTrue(false);
         	}
         }
+    	HelperFunctions.staticWait(3);
+    	catDropdown.click();
         
-        for(WebElement eachCat: catDropdownItems) {
+        for(WebElement eachCat: catDropdownList) {
         	System.out.println(eachCat.getText());
-        	if(eachCat.getText().contains("Hosted Software Terms") && eachCat.getText().contains("Patent Marking")&& eachCat.getText().contains("Tool License Terms")
-    				&& eachCat.getText().contains("SMS Terms & Acceptable Use Policy")&& eachCat.getText().contains("Terms of Use")&& eachCat.getText().contains("Offering Overview")
+        	if(eachCat.getText().contains("Hosted Software Terms") && eachCat.getText().contains("Patent Marking")
+    				&& eachCat.getText().contains("SMS Terms & Acceptable Use Policy")&& eachCat.getText().contains("Offering Overview")
     				&& eachCat.getText().contains("Maintenance & Support")&& eachCat.getText().contains("Data Processing Addendum")
-    				&& eachCat.getText().contains("Security")&& eachCat.getText().contains("Compliance")&& eachCat.getText().contains("Privacy")
+    				/*&& eachCat.getText().contains("Privacy")*/
     				&& eachCat.getText().contains("Accessibility")&& eachCat.getText().contains("Terms & Conditions")
-    				&& eachCat.getText().contains("Evaluation License")&& eachCat.getText().contains("Documentation")) {
+    				&& eachCat.getText().contains("Documentation")) {
         		Assert.assertTrue(true);
         	}else {
         		Assert.assertTrue(false);

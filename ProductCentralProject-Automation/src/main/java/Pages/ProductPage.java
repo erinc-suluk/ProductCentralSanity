@@ -231,6 +231,10 @@ public class ProductPage extends HelperFunctions {
 	
 	
 public void setDisplayResources() {
+	HelperFunctions.waitForPageToLoad(3);
+	product2.click();
+	HelperFunctions.waitForPageToLoad(3);
+	
 	 JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
      js.executeScript("arguments[0].scrollIntoView(true);", allResources);
      for(WebElement eachResources: first5resources) {
@@ -252,15 +256,17 @@ public void setDisplayResources() {
     }
 public void setNewTabAssets() {
 	HelperFunctions.staticWait(3);
+	product2.click();
+	HelperFunctions.staticWait(3);
 	JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
     js.executeScript("arguments[0].scrollIntoView(true);", viewMoreButton);
     HelperFunctions.staticWait(3);
-    firstResource.click();
+    resource1forProduct2.click();
     ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
     Driver.getDriver().switchTo().window(tabs.get(2));
     System.out.println(Driver.getDriver().getCurrentUrl());
     String actualUrl=Driver.getDriver().getCurrentUrl();
-    String expectedUrl="https://productcentral-qa.products.pwc.com/content/dam/productcentral/en_us/products/product-2/myproducts/sample10.pdf.coredownload.inline.pdf.coredownload.inline.pdf";
+    String expectedUrl="https://productcentral-qa.products.pwc.com/content/dam/productcentral/en_us/products/product-2/myproducts/sample10.pdf.coredownload.inline.pdf";
     Assert.assertEquals(actualUrl, expectedUrl);
     Driver.getDriver().close();
     Driver.getDriver().switchTo().window(tabs.get(1));
@@ -278,6 +284,9 @@ public void setMyProductSitemap() {
 }
 
 public void setTagsAccompany() {
+	HelperFunctions.staticWait(3);
+	product2.click();
+	HelperFunctions.staticWait(3);
 	JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
     js.executeScript("arguments[0].scrollIntoView(true);", viewMoreButton);
     

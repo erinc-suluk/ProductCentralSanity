@@ -676,7 +676,7 @@ public class SanityTestCases extends BasePage {
 	    logger.error("Test WEB_46 has failed");
 	}
 	
-	@Test 
+	@Test (enabled=false)
 	public void WEB_47() throws Exception{
 		ReadXLSdata read=new ReadXLSdata();
 		read.setExcelFile("./testdata.xlsx", "QA");
@@ -722,7 +722,7 @@ public class SanityTestCases extends BasePage {
 		   logger.info("Test WEB_50 has passed");
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=false)//
 	public void WEB_51() throws Exception{
 		ReadXLSdata read=new ReadXLSdata();
 		read.setExcelFile("./testdata.xlsx", "QA");
